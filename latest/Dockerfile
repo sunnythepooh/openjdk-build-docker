@@ -1,8 +1,7 @@
 FROM centos:latest
-RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-10.noarch.rpm
 RUN yum-builddep -y java-1.8.0-openjdk
-RUN yum install -y file which unzip nano hg compat-gcc-44 compat-gcc-44-c++ compat-glibc-headers-2.12 elfutils-libelf-devel ccache
-RUN useradd openjdk
+RUN yum install -y java-1.8.0-openjdk-devel make file which unzip nano hg compat-gcc-44 compat-gcc-44-c++ compat-glibc-headers-2.12 elfutils-libelf-devel numactl-devel
+RUN useradd openjdk 
 
 #Update git to latest, for OpenJ9
 RUN rpm -U http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm && yum install -y git
